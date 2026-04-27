@@ -1,0 +1,133 @@
+import os
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | IndepenDent Technician</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-heavy-shadow { text-shadow: 2px 2px 8px rgba(0,0,0,0.9); }
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://independent.checkmynewsite.com/wp-content/uploads/2026/02/services_hero.jpg');
+            background-size: cover; background-position: center;
+        }
+        .check-mark { color: #a3e635; font-weight: bold; margin-right: 0.5rem; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+    <div class="relative w-full bg-[#0a0f16]">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30">
+            <source src="assets/asset_cd0f89fe.mp4" type="video/mp4">
+        </video>
+        <header class="relative z-50 w-full py-6 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+            <a href="index.html"><img src="https://independent.checkmynewsite.com/wp-content/uploads/2026/02/Independent_new-logo2.png" alt="Logo" class="h-20"></a>
+            <nav>
+                <ul class="flex space-x-6 text-sm font-bold tracking-wider uppercase text-white">
+                    <li><a href="index.html" class="hover:text-lime-400">Home</a></li>
+                    <li><a href="about.html" class="hover:text-lime-400">About</a></li>
+                    <li><a href="services.html" class="text-lime-400">Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-lime-400">Gallery</a></li>
+                    <li><a href="contacts.html" class="hover:text-lime-400">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="hero-banner h-[380px] relative flex items-center justify-center">
+        <h1 class="text-white text-7xl font-black italic uppercase tracking-tighter text-heavy-shadow z-10">SERVICES</h1>
+        <div class="absolute bottom-0 left-0 w-full leading-none z-20">
+            <svg viewBox="0 0 1440 120" fill="none" class="w-full h-auto"><path d="M0 120L1440 120L1440 0C1440 0 1140 120 720 120C300 120 0 0 0 0L0 120Z" fill="white"/></svg>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6 py-12 max-w-7xl">
+        
+        <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+            <div class="md:w-3/5">
+                <h3 class="text-[#0071ba] font-bold italic text-xl mb-2">Hail Damage Repair Services</h3>
+                <h2 class="text-4xl font-black uppercase italic text-gray-900 mb-6 leading-tight">Trusted, Experienced, & Ready When the Storm Hits</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    When hail hits, <strong>time is critical</strong> — and so is quality. With over 30 years of hands-on experience, I partner with body shops, dealerships, and dent companies across the country to provide reliable, high-quality paintless dent repair (PDR) services after major storms.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    I’m not here to compete — I’m here to help you maximize your revenue, keep your customers happy, and restore vehicles to pre-storm condition with precision craftsmanship.
+                </p>
+            </div>
+            <div class="md:w-2/5">
+                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/06/pdr_repair-1.jpg" class="rounded-2xl shadow-2xl border-4 border-white">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <h4 class="text-2xl font-bold text-gray-900 mb-4 uppercase italic">Body Shops</h4>
+                <p>Expand your capacity and keep work flowing without sacrificing quality.</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <h4 class="text-2xl font-bold text-gray-900 mb-4 uppercase italic">Dealerships</h4>
+                <p>Get your fleet back to pre-loss condition quickly and easily, and profitably.</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                <h4 class="text-2xl font-bold text-gray-900 mb-4 uppercase italic">PDR Shops</h4>
+                <p>A hail storm can be a disaster or it can be your winning lottery ticket!</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-12 items-center mb-24 bg-blue-50/50 p-12 rounded-3xl">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-black uppercase italic text-gray-900 mb-8">Why Partner With Me?</h2>
+                <ul class="space-y-4 text-xl font-medium">
+                    <li><span class="check-mark">✓</span> 30+ Years of PDR Experience</li>
+                    <li><span class="check-mark">✓</span> Certified, Insured, and Professional</li>
+                    <li><span class="check-mark">✓</span> High-Quality, No-Drama Repairs</li>
+                    <li><span class="check-mark">✓</span> Sublet Work — You Keep a Percentage</li>
+                    <li><span class="check-mark">✓</span> Nationwide, Storm-Driven Availability</li>
+                </ul>
+            </div>
+            <div class="md:w-1/2 bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
+                <p class="italic text-gray-700 leading-relaxed">
+                    "I run a <strong>one-man operation</strong>, which means when I’m working for you, I’m fully focused on your shop and your customers. But it also means availability is limited — I only commit to one location at a time."
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center mb-24">
+            <h2 class="text-5xl font-black uppercase italic text-gray-900 mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-left">
+                <div class="p-6">
+                    <span class="text-4xl font-black text-blue-600 block mb-2">01</span>
+                    <p class="font-bold">You Call When a Storm Hits</p>
+                </div>
+                <div class="p-6">
+                    <span class="text-4xl font-black text-blue-600 block mb-2">02</span>
+                    <p class="font-bold">We Discuss Needs and Volume</p>
+                </div>
+                <div class="p-6">
+                    <span class="text-4xl font-black text-blue-600 block mb-2">03</span>
+                    <p class="font-bold">I Arrive and Get to Work</p>
+                </div>
+                <div class="p-6">
+                    <span class="text-4xl font-black text-blue-600 block mb-2">04</span>
+                    <p class="font-bold">You Keep Your Percentage</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-[#0a0f16] py-12 text-center text-gray-500 border-t border-gray-800">
+        <img src="https://independent.checkmynewsite.com/wp-content/uploads/2026/02/Independent_new-logo2.png" class="h-20 mx-auto mb-6 opacity-60">
+        <p class="text-white font-bold italic mb-2">PDR Technician | Serving: Phoenix AZ | Trade Accounts Only</p>
+        <p class="text-sm">Copyright © 2026, IndepenDent Technician – All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+"""
+
+with open('services.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+print("✅ services.html successfully rebuilt with your exact text and layout!")

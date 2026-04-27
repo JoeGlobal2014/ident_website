@@ -1,60 +1,66 @@
 import os
-import re
-import base64
-import hashlib
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
 
-def shrink_html_files():
-    # Create an assets folder to hold all the extracted images
-    assets_dir = 'assets'
-    if not os.path.exists(assets_dir):
-        os.makedirs(assets_dir)
-
-    # This pattern hunts down the massive base64 text blocks
-    pattern = re.compile(r'data:([^;]+);base64,([a-zA-Z0-9+/=]+)')
+def scrape_site(url):
+    print(f"🚀 Starting deep extraction of: {url}")
     
-    for filename in os.listdir('.'):
-        if filename.endswith('.html'):
-            print(f"Scanning {filename} for bloated assets...")
-            
-            with open(filename, 'r', encoding='utf-8') as f:
-                content = f.read()
+    # 1. Setup local environment
+    if not os.path.exists('assets'):
+        os.makedirs('assets')
+        
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
+    }
 
-            matches = pattern.findall(content)
-            if not matches:
-                print(f" -> No base64 assets found in {filename}.")
+    try:
+        response = requests.get(url, headers=headers, timeout=15)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # 2. Extract and Save all Images (including lazy-loaded ones)
+        images = soup.find_all('img')
+        print(f"📸 Found {len(images)} potential images. Downloading...")
+        
+        for i, img in enumerate(images):
+            # WordPress often hides real URLs in these attributes
+            img_url = img.get('data-lazy-src') or img.get('data-src') or img.get('src') or img.get('data-srcset')
+            
+            if not img_url:
                 continue
                 
-            print(f" -> Extracting {len(matches)} items from {filename}...")
-
-            for mime, b64_data in matches:
-                # Figure out the file type (png, jpg, svg, etc.)
-                ext = mime.split('/')[-1]
-                if '+' in ext:  # Handles things like svg+xml
-                    ext = ext.split('+')[0]
-                if ext == 'jpeg': 
-                    ext = 'jpg'
+            # Clean the URL (handle srcset strings)
+            img_url = img_url.split(' ')[0]
+            full_url = urljoin(url, img_url)
+            
+            try:
+                img_data = requests.get(full_url, headers=headers).content
+                ext = os.path.splitext(urlparse(full_url).path)[1] or '.jpg'
+                # Rename to a consistent asset name
+                filename = f"assets/asset_{hash(full_url) & 0xffffffff:08x}{ext}"
                 
-                # Create a short, unique name for the image
-                file_hash = hashlib.md5(b64_data.encode('utf-8')).hexdigest()[:8]
-                asset_filename = f"asset_{file_hash}.{ext}"
-                asset_path = os.path.join(assets_dir, asset_filename)
+                with open(filename, 'wb') as f:
+                    f.write(img_data)
+                # Update the soup object so we can save a "local" version of the HTML
+                img['src'] = filename
+            except Exception as e:
+                print(f"❌ Failed to download {full_url}: {e}")
 
-                # Decode the text and save it as an actual image file
-                if not os.path.exists(asset_path):
-                    try:
-                        with open(asset_path, 'wb') as img_file:
-                            img_file.write(base64.b64decode(b64_data))
-                    except Exception as e:
-                        print(f"    Skipping {asset_filename} due to error: {e}")
-                
-                # Replace the million-line string in HTML with "assets/asset_name.jpg"
-                full_match = f"data:{mime};base64,{b64_data}"
-                content = content.replace(full_match, f"{assets_dir}/{asset_filename}")
+        # 3. Save the Cleaned HTML and Text Structure
+        with open('scraped_structure.txt', 'w', encoding='utf-8') as f:
+            f.write("--- HEADINGS ---\n")
+            for h in soup.find_all(['h1', 'h2', 'h3', 'h4']):
+                f.write(f"[{h.name}] {h.get_text(strip=True)}\n")
+            
+            f.write("\n--- FULL PAGE CONTENT ---\n")
+            f.write(soup.get_text(separator='\n', strip=True))
 
-            # Save the newly shrunken HTML file
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(content)
-            print(f"✅ Successfully shrunken: {filename}\n")
+        print("✅ Extraction Complete! Check the 'assets' folder and 'scraped_structure.txt'.")
+
+    except Exception as e:
+        print(f"💥 Fatal Error: {e}")
 
 if __name__ == "__main__":
-    shrink_html_files()
+    target = "https://independent.checkmynewsite.com/services/"
+    scrape_site(target)
