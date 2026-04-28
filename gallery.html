@@ -5,116 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | IndepenDent Technician</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .text-heavy-shadow { text-shadow: 2px 2px 8px rgba(0,0,0,0.9); }
-        .hero-banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://independent.checkmynewsite.com/wp-content/uploads/2026/01/pdr_repair1.jpg');
-            background-size: cover; background-position: center;
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+        .font-black-italic {
+            font-family: 'Archivo Black', sans-serif;
+            font-style: italic;
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 font-sans antialiased">
+<body class="bg-white text-gray-900 font-sans antialiased">
 
-    <div class="relative w-full bg-[#0a0f16]">
-        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30">
-            <source src="assets/asset_cd0f89fe.mp4" type="video/mp4">
-        </video>
-        <header class="relative z-50 w-full py-6 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
-            <a href="index.html"><img src="https://independent.checkmynewsite.com/wp-content/uploads/2026/02/Independent_new-logo2.png" alt="Logo" class="h-20"></a>
-            <nav>
-                <ul class="flex space-x-6 text-sm font-bold tracking-wider uppercase text-white">
-                    <li><a href="index.html" class="hover:text-lime-400">Home</a></li>
-                    <li><a href="about.html" class="hover:text-lime-400">About</a></li>
-                    <li><a href="services.html" class="hover:text-lime-400">Services</a></li>
-                    <li><a href="gallery.html" class="text-lime-400">Gallery</a></li>
-                    <li><a href="contacts.html" class="hover:text-lime-400">Contact</a></li>
-                </ul>
+    <!-- Header -->
+    <header class="bg-[#050e14] border-b-4 border-lime-500 w-full z-50 py-2">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center">
+                <img src="assets/Independent_new-logo2.png" alt="IndepenDent Technician" class="h-16 md:h-20 w-auto">
+            </a>
+
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center text-white font-bold uppercase text-sm tracking-wider">
+                <a href="index.html" class="hover:text-lime-500 transition duration-300">Home</a>
+                <a href="about.html" class="hover:text-lime-500 transition duration-300">About</a>
+                <a href="services.html" class="text-lime-500">Services</a>
+                <a href="gallery.html" class="hover:text-lime-500 transition duration-300">Gallery</a>
+                <a href="contact.html" class="hover:text-lime-500 transition duration-300">Contact</a>
+                <a href="#" class="hover:text-lime-500 transition duration-300">Tech Reference</a>
             </nav>
-        </header>
-    </div>
-
-    <div class="hero-banner h-[380px] relative flex items-center justify-center">
-        <h1 class="text-white text-7xl font-black italic uppercase tracking-tighter text-heavy-shadow z-10">GALLERY</h1>
-        <div class="absolute bottom-0 left-0 w-full leading-none z-20">
-            <svg viewBox="0 0 1440 120" fill="none" class="w-full h-auto"><path d="M0 120L1440 120L1440 0C1440 0 1140 120 720 120C300 120 0 0 0 0L0 120Z" fill="white"/></svg>
         </div>
-    </div>
+    </header>
 
-    <main class="container mx-auto px-6 py-12 max-w-5xl text-center">
-        <h3 class="text-[#0071ba] font-bold italic text-xl mb-2">Check Out My Work</h3>
-        <h2 class="text-4xl font-black uppercase italic text-gray-900 mb-12">PDR Repair Before & After</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent_1.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent_1b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
-            </div>
+    <!-- Hero Banner -->
+    <section class="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- For gallery, there's a background video/image. Let's use the generic header background or video -->
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+                <source src="assets/asset_cd0f89fe.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/60"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent2.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent2b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
-            </div>
+        <div class="relative z-10 text-center">
+            <h1 class="text-white text-7xl font-black-italic uppercase tracking-tight drop-shadow-md">GALLERY</h1>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent3.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent3b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent4.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent4b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent5.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent5b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent6.jpeg" alt="Before" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">Before</p>
-            </div>
-            <div class="bg-gray-100 p-4 rounded-xl shadow-md border border-gray-200">
-                <img src="https://independent.checkmynewsite.com/wp-content/uploads/2025/07/independent6b.jpeg" alt="After" class="w-full h-auto rounded-lg mb-4">
-                <p class="font-bold text-lg text-gray-700">After</p>
+    <!-- Main Content Container -->
+    <main class="w-full bg-[#f0f4f8] py-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+                <!-- Images in Masonry style layout -->
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent_1.jpeg" class="w-full h-auto" alt="Gallery Image 1">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent_1b.jpeg" class="w-full h-auto" alt="Gallery Image 1b">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent2.jpeg" class="w-full h-auto" alt="Gallery Image 2">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent2b.jpeg" class="w-full h-auto" alt="Gallery Image 2b">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent3.jpeg" class="w-full h-auto" alt="Gallery Image 3">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent3b.jpeg" class="w-full h-auto" alt="Gallery Image 3b">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent4.jpeg" class="w-full h-auto" alt="Gallery Image 4">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent4b.jpeg" class="w-full h-auto" alt="Gallery Image 4b">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent5.jpeg" class="w-full h-auto" alt="Gallery Image 5">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent5b.jpeg" class="w-full h-auto" alt="Gallery Image 5b">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent6.jpeg" class="w-full h-auto" alt="Gallery Image 6">
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <img src="assets/independent6b.jpeg" class="w-full h-auto" alt="Gallery Image 6b">
+                </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-[#0a0f16] py-12 text-center text-gray-500 border-t border-gray-800">
-        <img src="https://independent.checkmynewsite.com/wp-content/uploads/2026/02/Independent_new-logo2.png" class="h-20 mx-auto mb-6 opacity-60">
-        <p class="text-white font-bold italic mb-2">PDR Technician | Serving: Phoenix AZ | Trade Accounts Only</p>
-        <p class="text-sm">Copyright © 2026, IndepenDent Technician – All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-[#050e14] pt-12 pb-6 border-t-4 border-lime-500 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+
+                <!-- Social Icons -->
+                <div class="flex space-x-3 mt-4 md:mt-8">
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#3b5998] text-white flex items-center justify-center hover:opacity-80 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#e1306c] text-white flex items-center justify-center hover:opacity-80 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:opacity-80 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#af0606] text-white flex items-center justify-center hover:opacity-80 transition"><i class="fab fa-yelp"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center border border-gray-700 hover:opacity-80 transition"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+
+                <!-- Center Text -->
+                <div class="text-center mt-4 md:mt-8">
+                    <p class="text-white font-black-italic text-lg tracking-wider">PDR Technician | Serving: Phoenix AZ | Trade Accounts Only</p>
+                    <div class="text-[#2e74c8] mt-3 space-x-2 text-sm">
+                        <a href="contact.html" class="hover:underline">Contact Me</a>
+                        <span class="text-gray-500">|</span>
+                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                        <span class="text-gray-500">|</span>
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-8">Copyright &copy; 2026, IndepenDent Technician &ndash; All Rights Reserved.</p>
+                </div>
+
+                <!-- Right Logo and Contact Info -->
+                <div class="flex flex-col items-center md:items-end">
+                    <img src="assets/Independent_new-logo2.png" alt="IndepenDent Technician" class="h-24 w-auto mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                    <p class="text-white text-sm font-bold tracking-wide">Tel: 123.456.7890</p>
+                    <p class="text-white text-sm font-bold tracking-wide">Email: Info@IndepenDentTech.com</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Back to top button placeholder -->
+        <div class="absolute bottom-6 right-6">
+            <a href="#" class="w-8 h-8 bg-black border border-gray-700 rounded text-white flex items-center justify-center hover:bg-gray-800 transition">
+                <i class="fas fa-chevron-up text-xs"></i>
+            </a>
+        </div>
     </footer>
 
 </body>
